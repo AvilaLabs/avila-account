@@ -1,0 +1,36 @@
+[package]
+name = "avila-account"
+version = "0.1.0"
+edition = "2021"
+description = "Avila Labs account sign-in and tool launcher for egui apps (browser and desktop)"
+repository = "https://github.com/AvilaLabs/avila-account"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["egui", "sign-in", "device-flow", "launcher", "wasm"]
+categories = ["gui", "authentication", "wasm"]
+include = ["src/**", "assets/**", "README.md", "LICENSE-MIT", "LICENSE-APACHE"]
+
+[features]
+default = []
+# The egui launcher, account chip, brand palette and the browser account
+# state (`ui_web`).
+ui = ["dep:egui", "dep:image", "dep:wasm-bindgen", "dep:wasm-bindgen-futures", "dep:web-sys"]
+# The account client: device-code sign-in and the credentials file. With
+# `ui` as well, the desktop sign-in controls.
+client = ["dep:ureq"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+ureq = { version = "2.12", optional = true, default-features = false, features = ["tls", "json"] }
+egui = { version = "=0.36.1", optional = true }
+image = { version = "0.25", optional = true, default-features = false, features = ["png"] }
+
+# Browser account state and the first-visit sign-in prompt (src/ui_web.rs).
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = { version = "0.2", optional = true }
+wasm-bindgen-futures = { version = "0.4", optional = true }
+web-sys = { version = "0.3", optional = true, features = ["Document", "Event", "EventTarget", "Headers", "Location", "Request", "RequestCredentials", "RequestInit", "RequestMode", "Response", "Storage", "Window"] }
+
+[dev-dependencies]
+tiny_http = "0.12"

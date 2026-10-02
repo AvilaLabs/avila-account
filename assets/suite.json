@@ -1,0 +1,44 @@
+{
+  "schema": "avila-suite-manifest/1",
+  "dashboard_url": "https://api.avilalabs.org/suite",
+  "account_url": "https://api.avilalabs.org/signin",
+  "fields": [
+    { "id": "fusion", "name": "Fusion energy" },
+    { "id": "medical", "name": "Medical physics" }
+  ],
+  "tools": [
+    {
+      "id": "actinv",
+      "name": "ACTINV",
+      "monogram": "Ac",
+      "summary": "Activation and nuclide inventory",
+      "fields": ["fusion"],
+      "status": "released",
+      "web": "https://actinv.avilalabs.org/",
+      "desktop": "https://actinv.avilalabs.org/download/",
+      "source": "https://github.com/AvilaLabs/ACTINV"
+    },
+    {
+      "id": "converra",
+      "name": "Converra",
+      "monogram": "Cv",
+      "summary": "HTS magnet design and cost",
+      "fields": ["fusion"],
+      "status": "released",
+      "web": "https://converra.avilalabs.org/",
+      "desktop": "https://github.com/AvilaLabs/Converra/releases/latest",
+      "source": "https://github.com/AvilaLabs/Converra"
+    },
+    {
+      "id": "openbnct",
+      "name": "OpenBNCT",
+      "monogram": "Bn",
+      "summary": "Boron neutron capture therapy research",
+      "fields": ["medical"],
+      "status": "released",
+      "web": "https://openbnct.avilalabs.org/",
+      "desktop": "https://github.com/AvilaLabs/OpenBNCT/releases/latest",
+      "source": "https://github.com/AvilaLabs/OpenBNCT"
+    }
+  ]
+}
