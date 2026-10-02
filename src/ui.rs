@@ -85,10 +85,11 @@ pub fn open(ctx: &egui::Context, launch: &Launch) {
 
 /// The tool marks, rendered from the Avila Labs tool SVGs at 96 px (2x of
 /// the 48 px tile). A tool without one falls back to its monogram.
-const TOOL_MARKS: [(&str, &[u8]); 3] = [
+const TOOL_MARKS: &[(&str, &[u8])] = &[
     ("actinv", include_bytes!("../assets/tools/actinv.png")),
     ("converra", include_bytes!("../assets/tools/converra.png")),
     ("openbnct", include_bytes!("../assets/tools/openbnct.png")),
+    ("faris", include_bytes!("../assets/tools/faris.png")),
 ];
 
 /// The tool's mark as a texture, loaded once per egui context.

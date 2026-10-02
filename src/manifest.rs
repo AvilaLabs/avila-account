@@ -86,7 +86,7 @@ impl Manifest {
             if let Some(field) = tool.fields.iter().find(|f| !field_ids.contains(f.as_str())) {
                 return Err(format!("tool {:?} names unknown field {field:?}", tool.id));
             }
-            if tool.web.is_none() && tool.desktop.is_none() {
+            if tool.web.is_none() && tool.desktop.is_none() && tool.source.is_none() {
                 return Err(format!("tool {:?} has no way to open it", tool.id));
             }
         }
@@ -119,7 +119,10 @@ impl Manifest {
 impl Tool {
     /// Where the launcher sends someone: the browser build when one exists.
     pub fn open_url(&self) -> Option<&str> {
-        self.web.as_deref().or(self.desktop.as_deref())
+        self.web
+            .as_deref()
+            .or(self.desktop.as_deref())
+            .or(self.source.as_deref())
     }
 }
 
@@ -132,6 +135,10 @@ mod tests {
         let m = Manifest::embedded();
         m.validate().unwrap();
         assert!(m.tool("actinv").is_some());
+        // A tool not out yet opens its source repository.
+        let faris = m.tool("faris").unwrap();
+        assert_eq!(faris.status, "coming soon");
+        assert_eq!(faris.open_url(), Some("https://github.com/AvilaLabs/FARIS"));
     }
 
     #[test]

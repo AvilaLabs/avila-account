@@ -39,6 +39,15 @@
       "web": "https://openbnct.avilalabs.org/",
       "desktop": "https://github.com/AvilaLabs/OpenBNCT/releases/latest",
       "source": "https://github.com/AvilaLabs/OpenBNCT"
+    },
+    {
+      "id": "faris",
+      "name": "FARIS",
+      "monogram": "Fa",
+      "summary": "Fusion plant lifetime simulator",
+      "fields": ["fusion"],
+      "status": "coming soon",
+      "source": "https://github.com/AvilaLabs/FARIS"
     }
   ]
 }

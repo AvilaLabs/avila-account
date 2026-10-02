@@ -16,7 +16,7 @@ Signing in is optional. Every tool works fully without an account.
   file. Together with `ui` it adds `ui_client` (the sign-in card) and
   `ui_desktop::DesktopSuite` for the desktop build.
 
-Nothing is on by default. egui is pinned to `=0.36.1`.
+Nothing is on by default. egui 0.36 (0.36.1 or later).
 
 ## Browser (wasm) app
 

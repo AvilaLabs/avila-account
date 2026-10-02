@@ -1,6 +1,6 @@
 [package]
 name = "avila-account"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Avila Labs account sign-in and tool launcher for egui apps (browser and desktop)"
 repository = "https://github.com/AvilaLabs/avila-account"
@@ -23,7 +23,7 @@ client = ["dep:ureq"]
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["float_roundtrip"] }
 ureq = { version = "2.12", optional = true, default-features = false, features = ["tls", "json"] }
-egui = { version = "=0.36.1", optional = true }
+egui = { version = "0.36.1", optional = true }
 image = { version = "0.25", optional = true, default-features = false, features = ["png"] }
 
 # Browser account state and the first-visit sign-in prompt (src/ui_web.rs).
